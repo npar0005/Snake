@@ -1,3 +1,12 @@
+/*
+	File: CAPI - Community edition
+	Description: Implements those missing useful functionalities javascript is missing
+	Author: N. Parsons
+	Copyright: N. Parsons (C) 2018
+	- Feel free to use this for your project
+	* Note: some functions have been taken from stackoverflow and are not my original work
+*/
+
 // Objects
 function Vector2d(x, y){
 	if(x instanceof Vector2d) {
@@ -13,19 +22,19 @@ function Vector2d(x, y){
 		this.x = x;
 		this.y = y;
 	}
-  
+
   	this.mag = function() {
 		return Math.sqrt(((this.x * this.x) + (this.y * this.y)));
 	}
 
 	this.magSq = function() {
-		return ((this.x * this.x) + (this.y * this.y));	
+		return ((this.x * this.x) + (this.y * this.y));
 	}
-  	
+
 	this.bound = function(num) {
 		if(this.x > num || this.x < -num) {
 			this.x = num;
-		} 
+		}
 
 		if(this.y > num || this.y < -num) {
 			this.y = num;
@@ -72,7 +81,7 @@ function Vector2d(x, y){
 			this.x *= v2d;
 			this.y *= v2d;
 		}
-		return this;	
+		return this;
 	}
 
 	this.div = function(v2d) {
@@ -83,7 +92,7 @@ function Vector2d(x, y){
 			this.x /= v2d;
 			this.y /= v2d;
 		}
-		return this;	
+		return this;
 	}
 
 	this.mult = function(v2d) {
@@ -94,7 +103,7 @@ function Vector2d(x, y){
 			this.x *= v2d;
 			this.y *= v2d;
 		}
-		return this;	
+		return this;
 	}
 
 
@@ -104,13 +113,13 @@ function Vector2d(x, y){
 		this.y /= absoluteV;
 		return this;
 	}
-  
+
 
 	this.setMag = function(newMag) {
 		this.normalize();
 		this.mult(newMag);
 		return this;
-	}	
+	}
 
 	this.getX = function(){return this.x;};
 	this.getY = function(){return this.y;};
@@ -154,18 +163,18 @@ function color(value) { // From https://stackoverflow.com/questions/2374959/algo
         RGB.R = -4*value + 4.5; // 1 - .5 // b = 9/2
         RGB.G = 0;
         RGB.B = 0;
-    } else { 
+    } else {
         RGB.R = .5;
         RGB.G = 0;
         RGB.B = 0;
     }
 
-    
+
     // scale for hex conversion
     RGB.R *= 15;
     RGB.G *= 15;
     RGB.B *= 15;
-	
+
     return Math.round(RGB.R).toString(16)+''+Math.round(RGB.G).toString(16)+''+Math.round(RGB.B).toString(16);
     //return {r: RGB.R, g: RGB.G, b: RGB.B};
 }
@@ -225,7 +234,7 @@ var contains = function(array, search, exact){
 				return true;
 			}
 		}
-			
+
 	}
 	return false;
 }
@@ -239,11 +248,11 @@ function cloneObj(obj) {
     return copy;
 }
 
-function rand(intMin, intMax) { 
+function rand(intMin, intMax) {
 	if(intMin > intMax) {
   		throw new UserException("MIN must be smaller than MAX!");
   	}
-  
+
 	return Math.floor(Math.random()*(intMax-intMin+1)+intMin); // From s-o-f
 }
 
@@ -255,7 +264,7 @@ function loopLog(array){
 
 function char_in_string(word, search, exact){
 	if(exact == undefined) exact = false;
-	
+
 	for(var i = 0; i < word.length; i++){
 		if(!exact){
 			if(word[i] == search){

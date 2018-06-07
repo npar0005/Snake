@@ -1,3 +1,9 @@
+/*
+	File: Food class
+	Author: N. Parsons
+	Copyright: N. Parsons (C) 2018
+*/
+
 class Food {
 	constructor(size) {
 		this.col;
@@ -17,7 +23,7 @@ class Food {
 		let scol = snake.body[snake.body.length-1].x;
 		let srow = snake.body[snake.body.length-1].y;
 
-		return (this.col == scol && this.row == srow); 
+		return (this.col == scol && this.row == srow);
 	}
 
 	spawn(snake) {

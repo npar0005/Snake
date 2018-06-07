@@ -1,3 +1,8 @@
+/*
+	File: Snake class
+	Author: N. Parsons
+	Copyright: N. Parsons (C) 2018
+*/
 class Snake {
 	constructor(col, row, size, dir) {
 		this.col = col;
@@ -47,20 +52,20 @@ class Snake {
 	}
 
 	grow() {
-		let lastBodyPartCol = this.body[0].getX(); 
+		let lastBodyPartCol = this.body[0].getX();
 		let lastBodyPartRow = this.body[0].getY();
 
 		let newBodyPart;
-		if(lastBodyPartCol + 1 == this.body[1].getX()) { 
+		if(lastBodyPartCol + 1 == this.body[1].getX()) {
 			// Grow left
 			newBodyPart = new Vector2d(lastBodyPartCol - 1, lastBodyPartRow);
-		} else if(lastBodyPartCol - 1 == this.body[1].getX()) { 
+		} else if(lastBodyPartCol - 1 == this.body[1].getX()) {
 			// Grow right
 			newBodyPart = new Vector2d(lastBodyPartCol + 1, lastBodyPartRow);
-		} else if(lastBodyPartRow + 1 == this.body[1].getY()) { 
+		} else if(lastBodyPartRow + 1 == this.body[1].getY()) {
 			// Grow Up
 			newBodyPart = new Vector2d(lastBodyPartCol, lastBodyPartRow - 1);
-		} else if(lastBodyPartRow - 1 == this.body[1].getY()) { 
+		} else if(lastBodyPartRow - 1 == this.body[1].getY()) {
 			// Grow Down
 			newBodyPart = new Vector2d(lastBodyPartCol, lastBodyPartRow + 1);
 		} else{

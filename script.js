@@ -1,3 +1,9 @@
+/*
+	File: Main driver file
+	Author: N. Parsons
+	Copyright: N. Parsons (C) 2018
+*/
+
 const SIZE = 30; // 30
 const FPS = 6; // 6
 
@@ -25,7 +31,7 @@ function drawGrid(SIZE, color) {
 		ctx.lineTo(canvas.width, y);
 		ctx.strokeStyle = color;
 		ctx.stroke();
-	}			
+	}
 }
 
 function endGame(gameLoop, snake) {
@@ -52,7 +58,7 @@ function game() {
 
 	snake.move();
 	food.draw();
-	
+
 	snake.draw();
 	drawGrid(SIZE, "black");
 	snake.edges();
@@ -86,7 +92,7 @@ $(function() {
 	food.spawn(snake);
 
 	$(".score").append("<span class='tempScore'>" +score +"</span>");
-	
+
 	// Game loop:
 	gameLoop = setInterval(game, 1000/FPS);
 });
